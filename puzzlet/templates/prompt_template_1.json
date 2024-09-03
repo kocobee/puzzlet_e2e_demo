@@ -6,7 +6,7 @@
   "prompts": [
     {
       "name": "prompt1",
-      "input": "Hello world!!",
+      "input": "Say this name: {{ name }}",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
@@ -19,7 +19,9 @@
             "system_prompt": ""
           }
         },
-        "parameters": {}
+        "parameters": {
+          "name": "Bob"
+        }
       }
     },
     {
