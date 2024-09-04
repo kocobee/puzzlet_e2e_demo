@@ -6,7 +6,7 @@
   "prompts": [
     {
       "name": "prompt1",
-      "input": "Say this name: {{ name }}",
+      "input": "Say this name: {{ name }}. Test123",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
