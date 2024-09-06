@@ -5,7 +5,7 @@
   "metadata": {},
   "prompts": [
     {
-      "name": "prompt_m0mpirpwu8u7m6",
+      "name": "my_prompt",
       "input": "Hello world",
       "metadata": {
         "model": {
