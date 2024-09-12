@@ -6,7 +6,7 @@
   "prompts": [
     {
       "name": "prompt1",
-      "input": "Give me a random number between 1 and 10. Only provide the number.",
+      "input": "Write a short story about a {{ animal }}. Give it a name.",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
@@ -21,13 +21,13 @@
           }
         },
         "parameters": {
-          "name": "Bob"
+          "animal": "Fox"
         }
       }
     },
     {
       "name": "prompt2",
-      "input": "What's {{ prompt1.output }} + 2?",
+      "input": "What's the name of the animal in this story?\n\n{{ prompt1.output }}",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
