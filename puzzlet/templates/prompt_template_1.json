@@ -6,7 +6,7 @@
   "prompts": [
     {
       "name": "prompt1",
-      "input": "Say this name: {{ name }}. Test123",
+      "input": "Give me a random number between 1 and 10. Only provide the number.",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
@@ -28,23 +28,6 @@
     {
       "name": "prompt2",
       "input": "Hows it going?",
-      "metadata": {
-        "model": {
-          "name": "gpt-3.5-turbo-1106",
-          "settings": {
-            "temperature": 0.7,
-            "max_tokens": 4096,
-            "top_p": 1,
-            "frequency_penalty": 0,
-            "presence_penalty": 0
-          }
-        },
-        "parameters": {}
-      }
-    },
-    {
-      "name": "prompt_m0mpjljk8p575i",
-      "input": "Pretty good, you?",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
