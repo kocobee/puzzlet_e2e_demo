@@ -6,7 +6,7 @@
   "prompts": [
     {
       "name": "prompt1",
-      "input": "Write a short story about a {{ animal }}. Give it a name.",
+      "input": "Write a short story about a {{ animal }}. Give it a name!",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
@@ -16,6 +16,7 @@
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0,
+            "functions": [],
             "system_prompt": ""
           }
         },
