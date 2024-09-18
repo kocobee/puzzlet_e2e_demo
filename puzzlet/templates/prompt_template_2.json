@@ -24,7 +24,7 @@
     },
     {
       "name": "prompt_m0mpkj2dlt2nha",
-      "input": "Add new prompt here",
+      "input": "Bleh",
       "metadata": {
         "model": {
           "name": "gpt-3.5-turbo-1106",
@@ -39,6 +39,5 @@
         "parameters": {}
       }
     }
-  ],
-  "$schema": ""
+  ]
 }
