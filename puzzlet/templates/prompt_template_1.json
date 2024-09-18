@@ -59,6 +59,24 @@
         },
         "parameters": {}
       }
+    },
+    {
+      "name": "prompt_m1862dzdfju6xi",
+      "input": "a",
+      "metadata": {
+        "model": {
+          "name": "gpt-3.5-turbo-1106",
+          "settings": {
+            "system_prompt": "",
+            "temperature": 0.7,
+            "max_tokens": 4096,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0
+          }
+        },
+        "parameters": {}
+      }
     }
   ],
   "$schema": ""
