@@ -1,0 +1,25 @@
+{
+  "name": "test44",
+  "schema_version": "latest",
+  "metadata": {},
+  "prompts": [
+    {
+      "name": "prompt_m2dhhoxmxk9nf9",
+      "input": "Hello",
+      "metadata": {
+        "model": {
+          "name": "gpt-3.5-turbo-1106",
+          "settings": {
+            "system_prompt": "",
+            "temperature": 0.7,
+            "max_tokens": 4096,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0
+          }
+        },
+        "parameters": {}
+      }
+    }
+  ]
+}
