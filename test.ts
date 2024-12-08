@@ -7,7 +7,7 @@ const client = new Puzzlet({
   appId: process.env.PUZZLET_APP_ID!,
   baseUrl: 'https://gateway-staging.ryan-5f0.workers.dev'
 });
-client.initTracing({ disableBatch: true });
+client.initTracing();
 
 ModelPluginRegistry.register(new OpenAIChatPlugin(), [
   "gpt-4o",
@@ -23,8 +23,11 @@ ModelPluginRegistry.register(new OpenAIChatPlugin(), [
 async function run () {
   try {
     const prompt = await client.fetchTemplate("math.prompt.mdx");
-    console.log('*** ', JSON.stringify(prompt, null, 2));
-    const result = await runInference(prompt);
+    const result = await runInference(
+      prompt,
+      { num: 3 },
+      { telemetry: { isEnabled: true, functionId: '1', metadata: { userId: '12345' } } }
+    );
     console.log('*** ', result);
   } catch (e) {
     console.error('*** ', e);
