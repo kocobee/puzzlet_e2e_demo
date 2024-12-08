@@ -1,32 +1,35 @@
 import 'dotenv/config'
-import { Puzzlet, trace, component } from "@puzzlet/sdk";
-import { PromptTemplateRuntime } from "@puzzlet/prompt-template";
-const client = new Puzzlet({ apiKey: process.env.PUZZLET_API_KEY!, appId: process.env.PUZZLET_APP_ID! });
+import { Puzzlet } from "@puzzlet/sdk";
+import { ModelPluginRegistry, runInference } from "@puzzlet/agentmark";
+import OpenAIChatPlugin from '@puzzlet/openai';
+const client = new Puzzlet({
+  apiKey: process.env.PUZZLET_API_KEY!,
+  appId: process.env.PUZZLET_APP_ID!,
+  baseUrl: 'https://gateway-staging.ryan-5f0.workers.dev'
+});
 client.initTracing({ disableBatch: true });
 
+ModelPluginRegistry.register(new OpenAIChatPlugin(), [
+  "gpt-4o",
+  "gpt-4o-mini",
+  "gpt-4-turbo",
+  "gpt-4",
+  "o1-mini",
+  "o1-preview",
+  "gpt-3.5-turbo",
+]);
 
-class Test {
-  @trace({ name: 'trace', associationProperties: { userId: '12345'} })
-  async run () {
-    await this.runPrompt1();
-    await this.runPrompt2();
+
+async function run () {
+  try {
+    const prompt = await client.fetchTemplate("math.prompt.mdx");
+    console.log('*** ', JSON.stringify(prompt, null, 2));
+    const result = await runInference(prompt);
+    console.log('*** ', result);
+  } catch (e) {
+    console.error('*** ', e);
   }
 
-  @component({ name: 'component-1'})
-  async runPrompt1() {
-    const json = await client.fetchTemplate("prompt_template_1.json");
-    const templateRuntime = PromptTemplateRuntime.load(json);
-    await templateRuntime.runSingle("prompt1", { animal: 'Tiger' });
-  }
-
-  @component({ name: 'component-2'})
-  async runPrompt2 () {
-    const json = await client.fetchTemplate("prompt_template_1.json");
-    const templateRuntime = PromptTemplateRuntime.load(json);
-    await templateRuntime.runDependencyChain("prompt2", { animal: 'Tiger' });
-  }
 }
 
-for (let i = 0; i < 5; i++) {
-  new Test().run();
-}
+run();

@@ -11,8 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@puzzlet/prompt-template": "^0.0.3",
-    "@puzzlet/sdk": "^1.0.0",
+    "@puzzlet/agentmark": "^1.1.4",
+    "@puzzlet/openai": "^1.1.4",
+    "@puzzlet/sdk": "^1.1.0",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
