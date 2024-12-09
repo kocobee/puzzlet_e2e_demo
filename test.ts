@@ -21,18 +21,9 @@ ModelPluginRegistry.register(new OpenAIChatPlugin(), [
 
 
 async function run () {
-  try {
-    const prompt = await client.fetchTemplate("math.prompt.mdx");
-    const result = await runInference(
-      prompt,
-      { num: 3 },
-      { telemetry: { isEnabled: true, functionId: '1', metadata: { userId: '12345' } } }
-    );
-    console.log('*** ', result);
-  } catch (e) {
-    console.error('*** ', e);
-  }
-
+  const prompt = await client.fetchPrompt("math.prompt.mdx");
+  const props = { num: 3 };
+  const telemetry = { isEnabled: true, functionId: '1', metadata: { userId: '12345' } };  
+  return (await runInference(prompt, props, { telemetry }));
 }
-
-run();
+run().then(console.log).catch(console.error);

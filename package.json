@@ -13,7 +13,7 @@
   "dependencies": {
     "@puzzlet/agentmark": "^1.1.4",
     "@puzzlet/openai": "^1.1.4",
-    "@puzzlet/sdk": "^1.1.0",
+    "@puzzlet/sdk": "^1.1.1",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
