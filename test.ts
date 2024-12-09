@@ -6,11 +6,8 @@ import OpenAIChatPlugin from '@puzzlet/openai';
 const puzzletClient = new Puzzlet({
   apiKey: process.env.PUZZLET_API_KEY!,
   appId: process.env.PUZZLET_APP_ID!,
-  baseUrl: 'https://gateway-staging.ryan-5f0.workers.dev'
 });
 const tracer = puzzletClient.initTracing();
-
-// Register relevant plugins for AgentMark: OpenAI, Anthropic, etc.
 
 ModelPluginRegistry.register(new OpenAIChatPlugin(), [
   "gpt-4o",
