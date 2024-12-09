@@ -809,15 +809,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puzzlet/sdk@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@puzzlet/sdk@npm:1.1.1"
+"@puzzlet/sdk@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@puzzlet/sdk@npm:1.1.2"
   dependencies:
     "@isaacs/ttlcache": "npm:^1.4.1"
     "@opentelemetry/api": "npm:^1.9.0"
     "@opentelemetry/sdk-node": "npm:^0.55.0"
     "@opentelemetry/sdk-trace-base": "npm:^1.28.0"
-  checksum: 10c0/41c92f54e2f0befe72cc07f2ef9917128889ff7eb3a7ce4044e36d745c08bb9ae506748ef99b22887ca8de38beecd641de3f8703dcff3bdfa83cdeb79b7626c2
+  checksum: 10c0/d7aea456160736eec3ec8428458923c00c025c8c5edb1d0565be5879d97fc6c66c7867c87174172a22b480c5236756670a987777693c9cf431afa2895452bfed
   languageName: node
   linkType: hard
 
@@ -2575,7 +2575,7 @@ __metadata:
   dependencies:
     "@puzzlet/agentmark": "npm:^1.1.4"
     "@puzzlet/openai": "npm:^1.1.4"
-    "@puzzlet/sdk": "npm:^1.1.1"
+    "@puzzlet/sdk": "npm:^1.1.2"
     dotenv: "npm:^16.4.5"
     tsx: "npm:^4.19.1"
   languageName: unknown

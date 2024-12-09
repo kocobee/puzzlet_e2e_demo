@@ -1,13 +1,18 @@
-import 'dotenv/config'
+import 'dotenv/config';
 import { Puzzlet } from "@puzzlet/sdk";
 import { ModelPluginRegistry, runInference } from "@puzzlet/agentmark";
 import OpenAIChatPlugin from '@puzzlet/openai';
-const client = new Puzzlet({
+
+const puzzletClient = new Puzzlet({
   apiKey: process.env.PUZZLET_API_KEY!,
   appId: process.env.PUZZLET_APP_ID!,
   baseUrl: 'https://gateway-staging.ryan-5f0.workers.dev'
 });
-client.initTracing();
+const tracer = puzzletClient.initTracing();
+
+console.log('*** tracer', tracer);
+
+// Register relevant plugins for AgentMark: OpenAI, Anthropic, etc.
 
 ModelPluginRegistry.register(new OpenAIChatPlugin(), [
   "gpt-4o",
@@ -19,11 +24,20 @@ ModelPluginRegistry.register(new OpenAIChatPlugin(), [
   "gpt-3.5-turbo",
 ]);
 
-
-async function run () {
-  const prompt = await client.fetchPrompt("math.prompt.mdx");
-  const props = { num: 3 };
-  const telemetry = { isEnabled: true, functionId: '1', metadata: { userId: '12345' } };  
-  return (await runInference(prompt, props, { telemetry }));
+async function run() {
+  try {
+    const prompt = await puzzletClient.fetchPrompt("math.prompt.mdx");
+    const props = { num: 3 };
+    const telemetry = {
+      isEnabled: true,
+      functionId: 'example-function-id',
+      metadata: { userId: 'example-user-id' }
+    };
+    return (await runInference(prompt, props, { telemetry }));
+  } catch (error) {
+    console.error(error);
+  }
 }
-run().then(console.log).catch(console.error);
+run().then(console.log)
+  .then(() => tracer.shutdown())
+  .then(() => process.exit(0));
