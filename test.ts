@@ -10,8 +10,6 @@ const puzzletClient = new Puzzlet({
 });
 const tracer = puzzletClient.initTracing();
 
-console.log('*** tracer', tracer);
-
 // Register relevant plugins for AgentMark: OpenAI, Anthropic, etc.
 
 ModelPluginRegistry.register(new OpenAIChatPlugin(), [
