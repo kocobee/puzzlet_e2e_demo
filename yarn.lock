@@ -5,6 +5,18 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@ai-sdk/anthropic@npm:^1.0.2":
+  version: 1.0.4
+  resolution: "@ai-sdk/anthropic@npm:1.0.4"
+  dependencies:
+    "@ai-sdk/provider": "npm:1.0.1"
+    "@ai-sdk/provider-utils": "npm:2.0.3"
+  peerDependencies:
+    zod: ^3.0.0
+  checksum: 10c0/55cbefd6e1ce757df8f277188194d873a071c77a4f546382858da6b5d7a409e993359d506c2b62cb4184c991f5402a467b483d1d58144c2256df5bd3cef056f0
+  languageName: node
+  linkType: hard
+
 "@ai-sdk/openai@npm:^1.0.5":
   version: 1.0.7
   resolution: "@ai-sdk/openai@npm:1.0.7"
@@ -795,6 +807,27 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     zod: "npm:^3.23.8"
   checksum: 10c0/34ec7f19daa35b8a8e4b266f8014910b93ca834f2a19b3925a38c228833d48cdd6fa3bdf89654998145875a44c39e85e7b5b1e9ac95640ecfd99452475a02a47
+  languageName: node
+  linkType: hard
+
+"@puzzlet/all-models@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@puzzlet/all-models@npm:1.1.4"
+  dependencies:
+    "@puzzlet/anthropic": "npm:^1.1.4"
+    "@puzzlet/openai": "npm:^1.1.4"
+  checksum: 10c0/de5b91bbd8bb64231dcb1683802c16da55938cb8ccacfa235257a4f55f6b66a38ca5b0bf783b530bbc617eaedd919c7069a7fb800a330f3386b97040938e4a71
+  languageName: node
+  linkType: hard
+
+"@puzzlet/anthropic@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@puzzlet/anthropic@npm:1.1.4"
+  dependencies:
+    "@ai-sdk/anthropic": "npm:^1.0.2"
+  peerDependencies:
+    zod: ^3.23.8
+  checksum: 10c0/1c376f3d8083c0c1fe18fd403a6ba9217268d798b4e666a7ff43353685f6f15fd314e9f489545b315245c59f38cac980d7edd3667100ded1936dd41daf3102a1
   languageName: node
   linkType: hard
 
@@ -2574,6 +2607,7 @@ __metadata:
   resolution: "puzzlet_e2e_demo@workspace:."
   dependencies:
     "@puzzlet/agentmark": "npm:^1.1.4"
+    "@puzzlet/all-models": "npm:^1.1.4"
     "@puzzlet/openai": "npm:^1.1.4"
     "@puzzlet/sdk": "npm:^1.1.2"
     dotenv: "npm:^16.4.5"
