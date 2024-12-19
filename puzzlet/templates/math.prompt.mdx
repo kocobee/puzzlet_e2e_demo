@@ -6,15 +6,16 @@ metadata:
     settings:
       top_p: 0.7
       max_llm_calls: 3
-      tools:
-        log:
-          description: Log a message
-          parameters:
-            type: object
-            properties:
-              message:
-                type: string
-                description: The message to log
+      schema:
+        type: object
+        properties:
+          names:
+            type: array
+            items:
+              type: string
+            description: names of people
+        required:
+        - names
 test_settings:
   props:
     num: 3
@@ -24,7 +25,6 @@ test_settings:
 import Test from "./test.mdx";
 
 <System>
-Your are an expert logger. Log the message given by the user. 
-Each sentence should be its own log.
+Provide the names of the people
 </System>
-<User>Hello world. How are you?</User>
+<User>Jill and John are going to the store</User>
