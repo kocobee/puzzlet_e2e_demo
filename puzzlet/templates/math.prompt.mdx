@@ -4,14 +4,22 @@ metadata:
   model:
     name: gpt-4o
     settings:
-      top_p: 0.73
-      max_tokens: 2865
-      temperature: 0.46
+      top_p: 0.7
+      tools:
+        log:
+          description: Log a message
+          parameters:
+            type: object
+            properties:
+              message:
+                type: string
+                description: The message to log
 test_settings:
   props:
     num: 3
 ---
 
+import Test from "./test.mdx";
 
-<System>Your are an expert mathematician</System>
-<User>What is 2 + 5?</User>
+<System>Your are an expert logger. Log the message given by the user.</System>
+<User>Hello world</User>
