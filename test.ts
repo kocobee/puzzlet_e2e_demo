@@ -23,8 +23,9 @@ ModelPluginRegistry.registerAll(AllModels);
 
 async function run () {
   const prompt = await puzzletClient.fetchPrompt("math.prompt.mdx");
-  console.log(prompt);
-  const props = {};
+  const props = {
+    userMessage: "What is the quadratic formula used for?"
+  };
   const telemetry = {
     isEnabled: true,
     functionId: 'example-function-id',
