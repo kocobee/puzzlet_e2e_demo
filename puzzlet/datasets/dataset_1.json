@@ -2,6 +2,25 @@
   "items": [
     {
       "input": {
+        "test": "1",
+        "test2": "2"
+      },
+      "output": {
+        "test": "1",
+        "test2": "2"
+      }
+    },
+    {
+      "input": {
+        "test": "1",
+        "test2": "2"
+      },
+      "output": {
+        "output": "1"
+      }
+    },
+    {
+      "input": {
         "test": "123",
         "bleh": "12344"
       },
