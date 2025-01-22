@@ -1,20 +1,17 @@
 import 'dotenv/config';
-import { Puzzlet } from "@puzzlet/sdk";
-import { runInference, ModelPluginRegistry, ToolPluginRegistry, Tool } from "@puzzlet/agentmark";
+import { ModelPluginRegistry, FileLoader } from "@puzzlet/agentmark";
 import AllModels from "@puzzlet/all-models";
-const puzzletClient = new Puzzlet({
+import type PuzzletTypes from "../puzzlet1.types";
+import { Puzzlet } from '@puzzlet/sdk';
+
+// const fileLoader = new FileLoader<PuzzletTypes>('./puzzlet/templates');
+
+const puzzletClient = new Puzzlet<PuzzletTypes>({
   apiKey: process.env.PUZZLET_API_KEY!,
   appId: process.env.PUZZLET_APP_ID!,
   baseUrl: process.env.PUZZLET_BASE_URL!,
 });
 const tracer = puzzletClient.initTracing();
-
-async function log({ message }: { message: string }): Promise<string> {
-  console.log(message);
-  return message;
-}
-
-ToolPluginRegistry.register(log, "log");
 
 // Note: Registering all latest models for demo/development purposes. 
 // In production, you'll likely want to selectively load these, and pin models.
@@ -22,7 +19,7 @@ ToolPluginRegistry.register(log, "log");
 ModelPluginRegistry.registerAll(AllModels);
 
 async function run () {
-  const prompt = await puzzletClient.fetchPrompt("math.prompt.mdx");
+  const prompt = await fileLoader.load('test/math2.prompt.mdx');
   const props = {
     userMessage: "What is the quadratic formula used for?"
   };
@@ -31,7 +28,8 @@ async function run () {
     functionId: 'example-function-id',
     metadata: { userId: 'example-user-id' }
   };
-  return (await runInference(prompt, props, { telemetry }));
+  const resp = await prompt.run(props, { telemetry });
+  return resp.result.object.answer;
 }
 
 let results: Promise<any>[] = [];
@@ -40,4 +38,4 @@ for (let i = 0; i < 10; i++) {
   results.push(run().then(console.log));
 }
 
-Promise.all(results).finally(() => tracer.shutdown());
+Promise.all(results).then(() => console.log('done'));
