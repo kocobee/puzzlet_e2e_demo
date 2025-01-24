@@ -2,11 +2,9 @@
   "items": [
     {
       "input": {
-        "test": "test"
+        "userMessage": "What is the quadratic formula?"
       },
-      "output": {
-        "output": "output"
-      },
+      "output": "Test",
       "name": "item_2zm7IIiC"
     }
   ]
