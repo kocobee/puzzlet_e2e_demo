@@ -1,16 +1,14 @@
 import 'dotenv/config';
-import { ModelPluginRegistry, FileLoader } from "@puzzlet/agentmark";
+import { ModelPluginRegistry, createTemplateRunner } from "@puzzlet/agentmark";
 import AllModels from "@puzzlet/all-models";
 import type PuzzletTypes from "../puzzlet1.types";
-import { Puzzlet } from '@puzzlet/sdk';
-
-// const fileLoader = new FileLoader<PuzzletTypes>('./puzzlet/templates');
+import { Puzzlet, trace, component } from '@puzzlet/sdk';
 
 const puzzletClient = new Puzzlet<PuzzletTypes>({
   apiKey: process.env.PUZZLET_API_KEY!,
   appId: process.env.PUZZLET_APP_ID!,
   baseUrl: process.env.PUZZLET_BASE_URL!,
-});
+}, createTemplateRunner);
 const tracer = puzzletClient.initTracing();
 
 // Note: Registering all latest models for demo/development purposes. 
@@ -19,7 +17,7 @@ const tracer = puzzletClient.initTracing();
 ModelPluginRegistry.registerAll(AllModels);
 
 async function run () {
-  const prompt = await fileLoader.load('test/math2.prompt.mdx');
+  const prompt = await puzzletClient.fetchPrompt('test/math2.prompt.mdx');
   const props = {
     userMessage: "What is the quadratic formula used for?"
   };
@@ -29,13 +27,18 @@ async function run () {
     metadata: { userId: 'example-user-id' }
   };
   const resp = await prompt.run(props, { telemetry });
-  return resp.result.object.answer;
+  return resp.result.answer;
 }
 
 let results: Promise<any>[] = [];
-for (let i = 0; i < 10; i++) {
-  // Note: You only need to shutdown the tracer for local/short running tasks.
-  results.push(run().then(console.log));
+for (let j = 0; j < 2; j++) {
+  trace(`trace-${j}`, async () => {
+    for (let i = 0; i < 2; i++) {
+      component(`component-${i}`, async () => {
+        results.push(run().then(console.log));
+      });
+    }
+  });
 }
 
-Promise.all(results).then(() => console.log('done'));
+Promise.all(results).then(() => tracer.shutdown()).catch(console.error)
