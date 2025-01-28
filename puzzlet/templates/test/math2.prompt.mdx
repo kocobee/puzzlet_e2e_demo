@@ -1,5 +1,5 @@
 ---
-name: math-2
+name: math2
 metadata:
   model:
     name: gpt-4o-mini
@@ -22,18 +22,9 @@ metadata:
               num2:
                 type: number
                 description: The second number to add
-input_schema:
-  type: "object"
-  required: ["userMessage"]
-  properties:
-    userMessage:
-      type: "string"
-      description: "The math question or topic the student needs help with"
-      minLength: 1
 test_settings:
   props:
-    num1: 3
-    num2: 4
+    userMessage: What is 2 + 3?
 ---
 
 
