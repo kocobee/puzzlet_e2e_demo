@@ -9,14 +9,19 @@ metadata:
       temperature: 0.7
       presence_penalty: 0
       frequency_penalty: 0
-      schema:
-        type: "object"
-        required: ["answer"]
-        properties:
-          answer:
-            type: "string"
-            description: "The answer to the math question"
-            minLength: 1
+      max_llm_calls: 3
+      tools:
+        calculator:
+          description: Calculates the sum of two numbers
+          parameters:
+            type: object
+            properties:
+              num1:
+                type: number
+                description: The first number to add
+              num2:
+                type: number
+                description: The second number to add
 input_schema:
   type: "object"
   required: ["userMessage"]

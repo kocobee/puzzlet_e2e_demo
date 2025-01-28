@@ -1,8 +1,14 @@
 import 'dotenv/config';
-import { ModelPluginRegistry, createTemplateRunner } from "@puzzlet/agentmark";
+import { ModelPluginRegistry, createTemplateRunner, ToolPluginRegistry } from "@puzzlet/agentmark";
 import AllModels from "@puzzlet/all-models";
 import type PuzzletTypes from "../puzzlet1.types";
 import { Puzzlet, trace, component } from '@puzzlet/sdk';
+
+async function calculator(a: number, b: number) {
+  return a + b;
+}
+
+ToolPluginRegistry.register(calculator, 'calculator');
 
 const puzzletClient = new Puzzlet<PuzzletTypes>({
   apiKey: process.env.PUZZLET_API_KEY!,
@@ -10,6 +16,7 @@ const puzzletClient = new Puzzlet<PuzzletTypes>({
   baseUrl: process.env.PUZZLET_BASE_URL!,
 }, createTemplateRunner);
 const tracer = puzzletClient.initTracing();
+tracer.start();
 
 // Note: Registering all latest models for demo/development purposes. 
 // In production, you'll likely want to selectively load these, and pin models.
