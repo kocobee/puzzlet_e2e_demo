@@ -2,6 +2,13 @@
   "items": [
     {
       "input": {
+        "userMessage": "test"
+      },
+      "output": "Test",
+      "name": "item_1lLXnSRN"
+    },
+    {
+      "input": {
         "userMessage": "What is the pythagorean theorem?"
       },
       "output": "Test",
