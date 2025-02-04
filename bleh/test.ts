@@ -4,11 +4,11 @@ import AllModels from "@puzzlet/all-models";
 import type PuzzletTypes from "../puzzlet1.types";
 import { Puzzlet, trace, component } from '@puzzlet/sdk';
 
-async function calculator(a: number, b: number) {
-  return a + b;
-}
+// async function calculator(obj: { num1: number, num2: number }) {
+//   return obj.num1 + obj.num2;
+// }
 
-ToolPluginRegistry.register(calculator, 'calculator');
+// ToolPluginRegistry.register(calculator, 'calculator');
 
 const puzzletClient = new Puzzlet<PuzzletTypes>({
   apiKey: process.env.PUZZLET_API_KEY!,
@@ -26,7 +26,7 @@ ModelPluginRegistry.registerAll(AllModels);
 async function run () {
   const prompt = await puzzletClient.fetchPrompt('test/math2.prompt.mdx');
   const props = {
-    userMessage: "What is the quadratic formula used for?"
+    userMessage: "What is 2 + 3? DONT use the calculator tool."
   };
   const telemetry = {
     isEnabled: true,
@@ -34,18 +34,21 @@ async function run () {
     metadata: { userId: 'example-user-id' }
   };
   const resp = await prompt.run(props, { telemetry });
-  return resp.result.answer;
+  console.log(resp);
+  return resp.result;
 }
 
-let results: Promise<any>[] = [];
-for (let j = 0; j < 2; j++) {
-  trace(`trace-${j}`, async () => {
-    for (let i = 0; i < 2; i++) {
-      component(`component-${i}`, async () => {
-        results.push(run().then(console.log));
-      });
-    }
-  });
-}
+run().then(() => tracer.shutdown()).catch(console.error);
 
-Promise.all(results).then(() => tracer.shutdown()).catch(console.error)
+// let results: Promise<any>[] = [];
+// for (let j = 0; j < 2; j++) {
+//   trace(`trace-${j}`, async () => {
+//     for (let i = 0; i < 2; i++) {
+//       component(`component-${i}`, async () => {
+//         results.push(run().then(console.log));
+//       });
+//     }
+//   });
+// }
+
+// Promise.all(results).then(() => tracer.shutdown()).catch(console.error)

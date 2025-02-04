@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@puzzlet/agentmark": "^2.1.3",
-    "@puzzlet/all-models": "^1.1.4",
+    "@puzzlet/agentmark": "^2.2.0",
+    "@puzzlet/all-models": "^1.1.5",
     "@puzzlet/sdk": "^2.0.1",
     "dotenv": "^16.4.5"
   },

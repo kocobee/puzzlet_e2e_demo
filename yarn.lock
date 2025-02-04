@@ -823,9 +823,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puzzlet/agentmark@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "@puzzlet/agentmark@npm:2.1.3"
+"@puzzlet/agentmark@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@puzzlet/agentmark@npm:2.2.0"
   dependencies:
     "@puzzlet/templatedx": "npm:^0.6.2"
     ai: "npm:^4.0.3"
@@ -833,39 +833,39 @@ __metadata:
     front-matter: "npm:^4.0.2"
     js-yaml: "npm:^4.1.0"
     zod: "npm:^3.23.8"
-  checksum: 10c0/a7608ca311197a2152aa6a129ee8243ca4402079e5c33050f292a206a15c0b47c3c5c64db22da52138e0d3abbc91d7ab2f98a1038b5ef56a60c74545d29f744b
+  checksum: 10c0/98ac3cf29c5412367c0844617ba40bccd861e46b3fb04e6f945051277b7077706c9c2552dab0d34f0afd678346ce980c459ce14ac0fcb5f4e23342636d735207
   languageName: node
   linkType: hard
 
-"@puzzlet/all-models@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@puzzlet/all-models@npm:1.1.4"
+"@puzzlet/all-models@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@puzzlet/all-models@npm:1.1.5"
   dependencies:
-    "@puzzlet/anthropic": "npm:^1.1.4"
-    "@puzzlet/openai": "npm:^1.1.4"
-  checksum: 10c0/de5b91bbd8bb64231dcb1683802c16da55938cb8ccacfa235257a4f55f6b66a38ca5b0bf783b530bbc617eaedd919c7069a7fb800a330f3386b97040938e4a71
+    "@puzzlet/anthropic": "npm:^1.1.5"
+    "@puzzlet/openai": "npm:^1.1.5"
+  checksum: 10c0/4727a2868e3f86a8ebdb7b5e5794abb62daa0a1f294591007eebd1ee22965533f0cd61560230d234bb8cd61fef00336e78a7fdf78434e4d48ec54c8ce5ab16a5
   languageName: node
   linkType: hard
 
-"@puzzlet/anthropic@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@puzzlet/anthropic@npm:1.1.4"
+"@puzzlet/anthropic@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@puzzlet/anthropic@npm:1.1.5"
   dependencies:
     "@ai-sdk/anthropic": "npm:^1.0.2"
   peerDependencies:
     zod: ^3.23.8
-  checksum: 10c0/1c376f3d8083c0c1fe18fd403a6ba9217268d798b4e666a7ff43353685f6f15fd314e9f489545b315245c59f38cac980d7edd3667100ded1936dd41daf3102a1
+  checksum: 10c0/c548688b15c5336e3faf98ee16677ed3073af0c118aac3b78b37700d42f9dc044ccb539057c5e99565991f80e13fe1f74be6db5ae2f9be1f0f7bfad9ad45f9ef
   languageName: node
   linkType: hard
 
-"@puzzlet/openai@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@puzzlet/openai@npm:1.1.4"
+"@puzzlet/openai@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@puzzlet/openai@npm:1.1.5"
   dependencies:
     "@ai-sdk/openai": "npm:^1.0.5"
   peerDependencies:
     zod: ^3.23.8
-  checksum: 10c0/176e3a7bcf57ed42a26b7ca52d1da9a02b63ccea1170a178819c686c62564151628f03c1f4542749c79c818c878211203c47abf608e3cee69fde3faf2772bc72
+  checksum: 10c0/658e5af498a81ed476c64908a98bfdb1c6341b0e39b26594488c47a674bebf57f507760981931376a25b8923deb370c8348dd961bd8eab55eeb1c388fad54cf9
   languageName: node
   linkType: hard
 
@@ -2629,8 +2629,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "puzzlet_e2e_demo@workspace:."
   dependencies:
-    "@puzzlet/agentmark": "npm:^2.1.3"
-    "@puzzlet/all-models": "npm:^1.1.4"
+    "@puzzlet/agentmark": "npm:^2.2.0"
+    "@puzzlet/all-models": "npm:^1.1.5"
     "@puzzlet/sdk": "npm:^2.0.1"
     dotenv: "npm:^16.4.5"
     tsx: "npm:^4.19.1"
