@@ -10,7 +10,7 @@ import { Puzzlet, trace, component } from '@puzzlet/sdk';
 
 // ToolPluginRegistry.register(calculator, 'calculator');
 
-const puzzletClient = new Puzzlet<PuzzletTypes>({
+const puzzletClient = new Puzzlet({
   apiKey: process.env.PUZZLET_API_KEY!,
   appId: process.env.PUZZLET_APP_ID!,
   baseUrl: process.env.PUZZLET_BASE_URL!,
@@ -24,9 +24,13 @@ tracer.start();
 ModelPluginRegistry.registerAll(AllModels);
 
 async function run () {
-  const prompt = await puzzletClient.fetchPrompt('test/math2.prompt.mdx');
+  const prompt = await puzzletClient.fetchPrompt('customer_support.prompt.mdx');
   const props = {
-    userMessage: "What is 2 + 3?"
+    emailContent: "Hey, I've been trying to log into my account but keep getting an error message. Can you help?",
+    customerTier: "premium",
+    previousTickets: 3,
+    lastContactDate: "2 days ago",
+    platform: "mobile_app"
   };
   const telemetry = {
     isEnabled: true,
