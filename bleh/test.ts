@@ -26,7 +26,7 @@ ModelPluginRegistry.registerAll(AllModels);
 async function run () {
   const prompt = await puzzletClient.fetchPrompt('test/math2.prompt.mdx');
   const props = {
-    userMessage: "What is 2 + 3? DONT use the calculator tool."
+    userMessage: "What is 2 + 3?"
   };
   const telemetry = {
     isEnabled: true,

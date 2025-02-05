@@ -1,0 +1,34 @@
+---
+name: email_responder
+metadata:
+  model:
+    name: gpt-4o
+test_settings:
+  props:
+    emailContent: "Hey, I've been trying to log into my account but keep getting an error message. Can you help?"
+    customerTier: "premium"
+    previousTickets: 3
+    lastContactDate: "2 days ago"
+    platform: "mobile_app"
+---
+
+<System>
+You are a customer support assistant. Your task is to generate helpful email responses to customer inquiries.
+
+Follow these rules:
+1. Always start with a greeting
+2. Address the customer's issue directly
+3. Provide step-by-step instructions
+4. End with a polite closing
+
+</System>
+
+<User>
+Please generate a response to this customer email:
+
+Customer's message: {props.emailContent}
+Customer tier: {props.customerTier}
+Previous support tickets: {props.previousTickets}
+Last contacted: {props.lastContactDate}
+Platform: {props.platform}
+</User>
