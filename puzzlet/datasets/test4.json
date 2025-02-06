@@ -2,9 +2,9 @@
   "items": [
     {
       "input": {
-        "test": ""
+        "test": "What is the name of capital of america"
       },
-      "output": "test1",
+      "expected_output": "Washington DC",
       "name": "item_Y3P9Jtuo"
     }
   ]
