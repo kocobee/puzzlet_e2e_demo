@@ -2,6 +2,13 @@
   "items": [
     {
       "input": {
+        "userMessage": "What is 2+2?"
+      },
+      "expected_output": 4,
+      "name": "item_pVfUPfue"
+    },
+    {
+      "input": {
         "userMessage": "test"
       },
       "output": "Test",
