@@ -2,6 +2,13 @@
   "items": [
     {
       "input": {
+        "userMessage": "What is 10 + 5? just print the answer"
+      },
+      "expected_output": "15",
+      "name": "item_I8Cokt4Q"
+    },
+    {
+      "input": {
         "userMessage": "What is 10 - 5? just print the answer"
       },
       "expected_output": "The answer is 5. If you have any more questions or need help with anything else, feel free to ask!",
