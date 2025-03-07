@@ -5,6 +5,13 @@
         "userMessage": "What is 10 + 5? just print the answer"
       },
       "expected_output": "15",
+      "name": "item_WNo4JOQw"
+    },
+    {
+      "input": {
+        "userMessage": "What is 10 + 5? just print the answer"
+      },
+      "expected_output": "15",
       "name": "item_I8Cokt4Q"
     },
     {
