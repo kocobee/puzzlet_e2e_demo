@@ -2,6 +2,13 @@
   "items": [
     {
       "input": {
+        "userMessage": "What is 10 - 5?"
+      },
+      "expected_output": "Great question! To solve \\(10 - 5\\), we are simply finding out how much is left when we take away 5 from 10.\n\n1. Start with the number 10.\n2. Subtract 5 from it.\n\nSo, \\(10 - 5 = 5\\).\n\nTherefore, the answer is \\(5\\). If you have any more questions or need help with anything else, feel free to ask!",
+      "name": "item_tcowg8qO"
+    },
+    {
+      "input": {
         "userMessage": "What is 10 + 5? just print the answer"
       },
       "expected_output": "15",
