@@ -1,0 +1,7 @@
+{"input":{"userMessage":"Where does AgentMark save prompts?"},"expected_output":"Your git repo."}
+{"input":{"userMessage":"What format are datasets saved in?"},"expected_output":"JSONL"}
+{"input":{"userMessage":"Are AgentMark prompts Type-Safe?"},"expected_output":"Yes!"}
+{"input":{"userMessage":"How can I add new models?"},"expected_output":"Our CLI!"}
+{"input":{"userMessage":"What format are prompts/evals saved in?"},"expected_output":"MDX"}
+{"input":{"userMessage":"Can I develop locally?"},"expected_output":"Yes!"}
+{"input":{"userMessage":"Can I deploy using the CLI?"},"expected_output":"Yes!"}
